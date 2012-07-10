@@ -37,17 +37,17 @@ function getShortestCountdown() {
 
 function doCrime() {
     setTimeout('$("a#nav-crime.button").click();', 1);
-    // 8 Nerve Crime
-    setTimeout('$("h2 a:eq(8)").click();', 4000);
+    // 10 Nerve Crime
+    setTimeout('$("h2 a:eq(9)").click();', 4000);
     var timeCheck = new Date().getSeconds() % 3;
     if (timeCheck === 0) {
-    	setTimeout('$("a.button.positive:eq(1)").click();', 8000);
+        setTimeout('$("a.button.positive:eq(1)").click();', 8000);
     }
     else if (timeCheck === 1) {
-    	setTimeout('$("a.button.positive:eq(2)").click();', 8000);
+        setTimeout('$("a.button.positive:eq(2)").click();', 8000);
     }
     else {
-    	setTimeout('$("a.button.positive:eq(3)").click();', 8000);
+        setTimeout('$("a.button.positive:eq(3)").click();', 8000);
     }
 }
 
@@ -75,7 +75,7 @@ function train() {
     var stats = [strength, defence, speed, dexterity];
     stats = stats.sort(compareNumbers);
     setTimeout('$("a#nav-gym.button").click();', 1);
-    
+
     var theStat = 'strength';
     if (stats[0] === defence) {
         theStat = "defence";
@@ -84,7 +84,7 @@ function train() {
     } else if (stats[0] === dexterity) {
         theStat = "dexterity";
     }
-    setTimeout(function(){doTrain(theStat);}, 3000);
+    setTimeout(function () { doTrain(theStat); }, 3000);
 }
 
 function doTrain(stat) {
@@ -138,12 +138,12 @@ function tornMain() {
             var curNerve = parseInt($('span#currentNerveValue').text());
             _waitSeconds = getShortestCountdown() * 1000;
             if (curNerve > 16) {
-            	if (new Date().getSeconds() % 2 === 0) {
-            		doCrime();
-            	}
-            	else {
-            		bustSomeone();
-            	}
+                if (new Date().getSeconds() % 2 === 0) {
+                    doCrime();
+                }
+                else {
+                    bustSomeone();
+                }
             }
             else if (curHappy >= 999) {
                 setTimeout('$("a#nav-home.button").click();', 1);
@@ -161,7 +161,7 @@ function tornMain() {
 
 console.log('STATE: ' + document.readyState + ' : ' + new Date());
 if (window.location.hostname === 'apps.facebook.com') {
-	setInterval(function () { window.location = 'http://facebook.torn.com' },5000);
+    setInterval(function () { window.location = 'http://facebook.torn.com' }, 5000);
 }
 else {
     console.log('done waiting. waitSeconds is: ' + _waitSeconds);
