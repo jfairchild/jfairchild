@@ -7,6 +7,8 @@
 // @include        http://www.megaupload.com/*
 // @include        http://torn.com/*
 // @include        http://www.torn.com/*
+// @require        https://raw.github.com/devongovett/png.js/master/zlib.js
+// @require        https://raw.github.com/devongovett/png.js/master/png.js
 // @copyright      2009 Shaun Friedle
 // @license        GPL version 3; http://www.gnu.org/copyleft/gpl.html
 // @grant          GM_getValue
@@ -55,6 +57,11 @@ Block.prototype.search = function(key)
     return low;
   }
 
+
+function PNG()
+{
+
+}
 
 function GIF()
   {
@@ -427,6 +434,7 @@ function crop_canvas(canvas, start_point)
 
 function decode(captcha)
   {
+    console.warn('captcha is: ' + typeof captcha);
     var canvas = captcha.to_canvas();
     var image = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height);
     
@@ -831,11 +839,13 @@ function split_block(block)
 
 function load_image(data)
   {
-    var gif = new GIF();
-    gif.from_array(data_array(data));
+    console.warn('loading image');
+    var captachapng = new PNG(data);
+    //gif.from_array(data_array(data));
 
     //var form = document.getElementById('captchaform');
-    var imgtext = decode(gif);
+    console.warn('CALLING decode');
+    var imgtext = decode(captachapng);
     var text = document.createTextNode('Image IS: ' + imgtext);
     document.getElementById('nav-g1').appendChild(text);
   }
@@ -851,10 +861,9 @@ function data_array(data)
     return data_array;
   }
 
-
 function start()
   {
-    if(document.getElementById('tabs-1').getElementsByTagName('table')[2] != null)
+    if(document.getElementById('tabs-1') != null && document.getElementById('tabs-1').getElementsByTagName('table')[2] != null)
     {
       var png = document.getElementById('tabs-1').getElementsByTagName('table')[2].getElementsByTagName('img')[0];
       if(png.src.indexOf('verification') === 7)
@@ -868,6 +877,12 @@ console.warn('CALLING AJAX');
                           onload: function(response) { load_image(response.responseText); }
                           });
       }
+    }
+    else
+    {
+      console.warn('HARDCODED IMAGE URL');
+      var canvas3 = document.createElement('canvas');
+      var retVal = PNG.load('http://localhost/tc/verimage-986478518.png',canvas3,load_image);
     }
     if (document.getElementById('downloadlink') != null)
       {
@@ -906,7 +921,6 @@ console.warn('CALLING AJAX');
       }
   }
 
-
 function toggle_autostart(e)
   {
     if (GM_getValue('autostart', false))
@@ -921,7 +935,10 @@ function toggle_autostart(e)
         window.location.href = document.getElementById('downloadlink').firstChild.href;
       }
   }
+  if(PNG == null){
+console.warn('called start? PNG IS NULL');
 
+}
 start();
 
 function create_net()

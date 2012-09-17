@@ -435,3 +435,25 @@
   window.PNG = PNG;
 
 }).call(this);
+
+var canvas1 = document.createElement('canvas');
+//var canvas1ctx = canvas1.getContext('1d');
+var thepng = PNG.load("http://localhost/tc/verimage-986478518.png",canvas1);
+var mainDiv = document.getElementById('main');
+
+// var newImg = new Image;
+// newImg.src = canvas1.toDataURL();
+// mainDiv.appendChild(newImg);
+
+mainDiv.appendChild(canvas1);
+var text = document.createTextNode('This is the text');
+mainDiv.appendChild(text);
+if(thepng == null){
+  text = document.createTextNode('the png is NULL');
+  mainDiv.appendChild(text);
+}
+else
+{
+  text = document.createTextNode('the png is type: ' + typeof thepng);
+  mainDiv.appendChild(text);
+}
