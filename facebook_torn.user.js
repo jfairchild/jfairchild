@@ -88,6 +88,7 @@ function train() {
 }
 
 function doTrain(stat) {
+    stat = 'strength';
     var energy = parseInt($('span#currentEnergyValue').text()) / 5;
     var input = 'input#' + stat + '.smallInputbox';
     $(input).val(energy);
@@ -137,7 +138,7 @@ function tornMain() {
             var curEnergy = parseInt($('span#currentEnergyValue').text());
             var curNerve = parseInt($('span#currentNerveValue').text());
             _waitSeconds = getShortestCountdown() * 1000;
-            if (curNerve > 16) {
+            if (curNerve > 13) {
                 if (new Date().getSeconds() % 2 === 0) {
                     doCrime();
                 }
