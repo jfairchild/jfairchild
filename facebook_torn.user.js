@@ -1,5 +1,6 @@
 // ==UserScript==
 // @name          Facebook Torn
+// @namespace     http://github.com/jfairchild
 // @icon          http://d6x6y1bpumxsv.cloudfront.net/orderdots/assets/jeff-obama-style.png
 // @include       http://facebook.torn.com/*
 // @include       http://apps.facebook.com/*
