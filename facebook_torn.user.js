@@ -2,8 +2,8 @@
 // @name          Facebook Torn
 // @namespace     http://github.com/jfairchild
 // @icon          http://d6x6y1bpumxsv.cloudfront.net/orderdots/assets/jeff-obama-style.png
-// @include       http://facebook.torn.com/*
-// @include       http://apps.facebook.com/*
+// @include       /^https?://facebook\.torn\.com/.*/
+// @include       /^https?://apps\.facebook\.com/.*/
 // @require       http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js
 // @version       1.2
 // @grant         GM_getValue
