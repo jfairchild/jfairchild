@@ -1,9 +1,7 @@
 // ==UserScript==
 // @name          Facebook Torn
-// @namespace     https://www.facebook.com/jeff.commerce
 // @include       http://facebook.torn.com/*
 // @include       http://apps.facebook.com/*
-// @icon          http://profileimages.torn.com/195793575-558217.jpg
 // @require       http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js
 // @version       1.1
 // @grant         GM_getValue
