@@ -5,7 +5,7 @@
 // @include       /^https?://facebook\.torn\.com/.*/
 // @include       /^https?://apps\.facebook\.com/.*/
 // @require       http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js
-// @version       1.2
+// @version       1.3
 // @grant         GM_getValue
 // @grant         GM_setValue
 // ==/UserScript==
@@ -146,7 +146,7 @@ function tornMain() {
                     bustSomeone();
                 }
             }
-            else if (curHappy >= 999) {
+            else if (curHappy > 1499) {
                 setTimeout('$("a#nav-home.button").click();', 1);
                 setTimeout(train, 3000);
             }
