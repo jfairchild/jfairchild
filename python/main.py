@@ -1,14 +1,14 @@
 import httplib, urllib
 from cookielib import CookieJar, DefaultCookiePolicy
 
-HOSTNAME = "www.torn.com"
-USERNAME = "xxxxxx"
-PASSWORD = "xxxxxx"
+HOSTNAME = ENV['PY_HOST']
+USERNAME = ENV['PY_USER']
+PASSWORD = ENV['PY_PASS']
 
 _cookieJar = CookieJar()
 
 def  getIndex(url):
-	print "WHAT HAPPEN? ", url, HOSTNAME
+	print "WHA? ", url, HOSTNAME
 
 
 def login(url, username, password):
